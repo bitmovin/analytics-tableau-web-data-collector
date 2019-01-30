@@ -300,13 +300,13 @@ var dimensions = [
       }
 
       temp = validateAndGetValue($("#datePickerFrom"), function(input) {
-        return input.data("datetimepicker").date();
+        return input.data("DateTimePicker").date();
       });
       isValid &= temp.isValid;
       var startDate = temp.value;
 
       temp = validateAndGetValue($("#datePickerTo"), function(input) {
-        return input.data("datetimepicker").date();
+        return input.data("DateTimePicker").date();
       });
       isValid &= temp.isValid;
       var endDate = temp.value;
