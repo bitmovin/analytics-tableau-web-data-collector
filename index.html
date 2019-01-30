@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <title>Bitmovin Analytics</title>
+    <meta http-equiv="Cache-Control" content="no-store" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+    
+    
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://connectors.tableau.com/libs/tableauwdc-2.3.latest.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+    <script src=js/bootstrap-datetimepicker.min.js type="text/javascript"></script>
+    <script src=js/bitmovin.js type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div class="container">
+        <form>
+          <h1>Bitmovin Analytics</h1>
+          <div class="form-group">
+            <label for="inputApiKey">Enter your API key</label>
+            <input
+              type="text"
+              class="form-control required"
+              id="inputApiKey"
+              value="0b91f6ba-82f7-4d20-a827-09cdf6e15adc"
+              placeholder="Enter API key"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputLicenseKey">Enter your license key</label>
+            <input
+              type="text"
+              class="form-control required"
+              id="inputLicenseKey"
+              value="45adcf9b-8f7c-4e28-91c5-50ba3d442cd4"
+              placeholder="Enter license key"
+            />
+          </div>
+          <div class="form-group">
+            <label for="selectAggregation">Aggregation</label>
+            <select class="form-control required" id="selectAggregation">
+              <option value="count">Count</option>
+              <option value="sum">Sum</option>
+              <option value="avg">Avg</option>
+              <option value="min">Min</option>
+              <option value="max">Max</option>
+              <option value="stddev">Stddev</option>
+              <option value="percentile">Percentile</option>
+              <option value="variance">Variance</option>
+              <option value="median">Median</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="selectInterval">Interval</label>
+            <select class="form-control required" id="selectInterval">
+              <option value="NONE">None</option>
+              <option value="MINUTE">Minute</option>
+              <option value="HOUR">Hour</option>
+              <option value="DAY">Day</option>
+              <option value="MONTH">Month</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="datePickerFrom">From</label>
+            <div class='input-group date' id='datePickerFrom'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="datePickerTo">To</label>
+            <div class='input-group date' id='datePickerTo'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="selectDimension">Dimension</label>
+            <select class="form-control required" id="selectDimension">
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputGroupBy">Group by</label>
+            <input type="text" class="form-control" id="inputGroupBy" placeholder="Comma separated list (BROWSER,COUNTRY)">
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputFilter">Filter</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputFilter"
+              placeholder="Comma separated list ({name:&quot;STARTUPTIME&quot;,operator:&quot;GT&quot;,&value:0})"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputLimit">Limit</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputLimit"
+              placeholder="150"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputOffset">Offset</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputOffset"
+              placeholder="0"
+            />
+          </div>
+          <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+  </body>
+</html>

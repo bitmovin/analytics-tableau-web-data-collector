@@ -1,0 +1,22 @@
+{
+  "name": "analytics-tableau-web-data-collector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bitmovin.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolandgriesser/analytics-tableau-web-data-collector.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolandgriesser/analytics-tableau-web-data-collector/issues"
+  },
+  "homepage": "https://github.com/rolandgriesser/analytics-tableau-web-data-collector#readme",
+  "dependencies": {
+    "eslint": "^5.12.1"
+  }
+}
