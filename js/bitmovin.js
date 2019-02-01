@@ -155,6 +155,9 @@ var dimensions = [
     if (connectionData.offset) {
       data.offset = connectionData.offset;
     }
+    if(connectionData.aggregation === "percentile") {
+      data.percentile = connectionData.percentile;
+    }
 
     var options = {
       url: [
@@ -194,10 +197,10 @@ var dimensions = [
   function validateAndGetValue(input, getValue) {
     var isValid = true;
     var value = getValue(input);
-    input.removeClass("is-invalid");
+    input.parent().removeClass("has-error");
     if ((input.required || input.hasClass("required")) && !value) {
       isValid = false;
-      input.addClass("is-invalid");
+      input.parent().addClass("has-error");
     }
 
     return {
@@ -224,6 +227,14 @@ var dimensions = [
     $("#datePickerFrom")
       .data("DateTimePicker")
       .date(moment().subtract(7, "days"));
+
+    $("#selectAggregation").change(function(e) {
+      if($("#selectAggregation").val() !== "percentile") {
+        $("#inputPercentile").parent().addClass("hidden");
+      } else {
+        $("#inputPercentile").parent().removeClass("hidden");
+      }
+    });
 
     $("#submitButton").click(function(e) {
       var temp = validateAndGetValue($("#inputApiKey"), function(input) {
@@ -265,7 +276,7 @@ var dimensions = [
         try {
           filters = eval("([" + temp.value + "])");
         } catch (e) {
-          $("#inputFilter").addClass("is-invalid");
+          $("#inputFilter").addClass("has-error");
           isValid = false;
         }
       }
@@ -282,6 +293,16 @@ var dimensions = [
       isValid &= temp.isValid;
       var offset = temp.value;
 
+      temp = validateAndGetValue($("#inputPercentile"), function(input) {
+        return input.val();
+      });
+      isValid &= temp.isValid;
+      var percentile = temp.value;
+      if (aggregation === 'percentile' && !percentile) {
+        $("#inputPercentile").parent().addClass("has-error");
+        isValid = false;
+      }
+
       temp = validateAndGetValue($("#inputGroupBy"), function(input) {
         return input.val();
       });
@@ -294,7 +315,7 @@ var dimensions = [
             return v.trim();
           });
         } catch (e) {
-          $("#inputGroupBy").addClass("is-invalid");
+          $("#inputGroupBy").addClass("has-error");
           isValid = false;
         }
       }
@@ -327,7 +348,8 @@ var dimensions = [
         offset: offset,
         interval: interval,
         startDate: startDate,
-        endDate: endDate
+        endDate: endDate,
+        percentile: percentile
       };
       tableau.connectionData = JSON.stringify(request);
       tableau.connectionName = "Bitmovin Analytics";

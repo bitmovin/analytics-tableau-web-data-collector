@@ -22,7 +22,7 @@
         <form>
           <h1>Bitmovin Analytics</h1>
           <div class="form-group">
-            <label for="inputApiKey">Enter your API key</label>
+            <label class="control-label" for="inputApiKey">Enter your API key</label>
             <input
               type="text"
               class="form-control required"
@@ -31,7 +31,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="inputLicenseKey">Enter your license key</label>
+            <label class="control-label" for="inputLicenseKey">Enter your license key</label>
             <input
               type="text"
               class="form-control required"
@@ -40,7 +40,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="selectAggregation">Aggregation</label>
+            <label class="control-label" for="selectAggregation">Aggregation</label>
             <select class="form-control required" id="selectAggregation">
               <option value="count">Count</option>
               <option value="sum">Sum</option>
@@ -53,8 +53,17 @@
               <option value="median">Median</option>
             </select>
           </div>
+          <div class="form-group hidden">
+            <label class="control-label" for="inputPercentile">Percentile (0-99)</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputPercentile"
+              placeholder="Percentile"
+            />
+          </div>
           <div class="form-group">
-            <label for="selectInterval">Interval</label>
+            <label class="control-label" for="selectInterval">Interval</label>
             <select class="form-control required" id="selectInterval">
               <option value="NONE">None</option>
               <option value="MINUTE">Minute</option>
@@ -64,8 +73,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="datePickerFrom">From</label>
-            <div class='input-group date' id='datePickerFrom'>
+            <label class="control-label" for="datePickerFrom">From</label>
+            <div class='input-group date required' id='datePickerFrom'>
                 <input type='text' class="form-control" />
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
@@ -73,8 +82,8 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="datePickerTo">To</label>
-            <div class='input-group date' id='datePickerTo'>
+            <label class="control-label" for="datePickerTo">To</label>
+            <div class='input-group date required' id='datePickerTo'>
               <input type='text' class="form-control" />
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
@@ -82,19 +91,19 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="selectDimension">Dimension</label>
+            <label class="control-label" for="selectDimension">Dimension</label>
             <select class="form-control required" id="selectDimension">
 
             </select>
           </div>
           <div class="form-group">
-            <label for="inputGroupBy">Group by</label>
+            <label class="control-label" for="inputGroupBy">Group by</label>
             <input type="text" class="form-control" id="inputGroupBy" placeholder="Comma separated list (BROWSER,COUNTRY)">
 
             </select>
           </div>
           <div class="form-group">
-            <label for="inputFilter">Filter</label>
+            <label class="control-label" for="inputFilter">Filter</label>
             <input
               type="text"
               class="form-control"
@@ -103,7 +112,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="inputLimit">Limit</label>
+            <label class="control-label" for="inputLimit">Limit</label>
             <input
               type="number"
               class="form-control"
@@ -112,7 +121,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="inputOffset">Offset</label>
+            <label class="control-label" for="inputOffset">Offset</label>
             <input
               type="number"
               class="form-control"
