@@ -17,6 +17,8 @@ var dimensions = [
   "CUSTOM_DATA_3",
   "CUSTOM_DATA_4",
   "CUSTOM_DATA_5",
+  "CUSTOM_DATA_6",
+  "CUSTOM_DATA_7",
   "CUSTOM_USER_ID",
   "DEVICE_TYPE",
   "DOMAIN",
