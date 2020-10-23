@@ -7,6 +7,7 @@ var dimensions = [
   "AUTOPLAY",
   "BROWSER",
   "BROWSER_VERSION_MAJOR",
+  "BROWSER_VERSION_MINOR",
   "BUFFERED",
   "CDN_PROVIDER",
   "CITY",
@@ -27,6 +28,9 @@ var dimensions = [
   "DROPPED_FRAMES",
   "DURATION",
   "ERROR_CODE",
+  "ERROR_MESSAGE",
+  "ERROR_PERCENTAGE",
+  "ERROR_RATE",
   "EXPERIMENT_NAME",
   "IMPRESSION_ID",
   "IP_ADDRESS",
@@ -38,6 +42,11 @@ var dimensions = [
   "LICENSE_KEY",
   "MPD_URL",
   "M3U8_URL",
+  "OPERATINGSYSTEM",
+  "OPERATINGSYSTEM_VERSION_MAJOR",
+  "OPERATINGSYSTEM_VERSION_MINOR",
+  "PAGE_LOAD_TIME",
+  "PAGE_LOAD_TYPE",
   "PATH",
   "PAUSED",
   "PLAYED",
@@ -46,18 +55,23 @@ var dimensions = [
   "PLAYER_STARTUPTIME",
   "PLAYER_TECH",
   "PLAYER_VERSION",
+  "PROG_URL",
   "REGION",
+  "REBUFFER_PERCENTAGE",
   "SCALE_FACTOR",
   "SCREEN_HEIGHT",
   "SCREEN_WIDTH",
   "SEEKED",
   "SIZE",
   "STARTUPTIME",
+  "STATE",
+  "STREAM_EXITS",
   "STREAM_FORMAT",
   "USER_ID",
   "VIDEO_BITRATE",
   "VIDEO_DURATION",
   "VIDEO_ID",
+  "VIDEO_TITLE",
   "VIDEO_PLAYBACK_HEIGHT",
   "VIDEO_PLAYBACK_WIDTH",
   "VIDEO_STARTUPTIME",
@@ -65,11 +79,7 @@ var dimensions = [
   "VIDEO_WINDOW_WIDTH",
   "VIDEOTIME_END",
   "VIDEOTIME_START",
-  "OPERATINGSYSTEM",
-  "OPERATINGSYSTEM_VERSION_MAJOR",
-  "PAGE_LOAD_TIME",
-  "PAGE_LOAD_TYPE",
-  "PROG_URL"
+  "VIEWTIME",
 ];
 
 (function() {
@@ -125,7 +135,7 @@ var dimensions = [
         result.time = moment(row[0]).toDate();
       }
       request.groupBy.map(
-        function(groupBy, index) { 
+        function(groupBy, index) {
           result[groupBy] = String(row[index + groupByStartIndex]);
         }
       );
